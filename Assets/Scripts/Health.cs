@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace.Interfaces;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace DefaultNamespace
     public class Health : MonoBehaviour
     {
         private float _healthValue;
+        public float HealthValue => _healthValue;
 
         public void SetHealth(float value)
         {

@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105871616368236115}
   - component: {fileID: 6002688082625518548}
+  - component: {fileID: 1949634415330394466}
   m_Layer: 0
   m_Name: CylinderWarrior
   m_TagString: Untagged
@@ -141,5 +142,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d1c144959994e4095a5804908ce2dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 0}
+--- !u!114 &1949634415330394466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922471583153726715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35146d40ea1848f5aec3c80209c4a25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

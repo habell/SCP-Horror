@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour, ISpawnable, IUnit
 {
-    [SerializeField]
     private Health _health;
 
     public Health Health => _health;
@@ -21,7 +20,7 @@ public class Player : MonoBehaviour, ISpawnable, IUnit
 
     private void Awake()
     {
-        if(!_health) _health = GetComponent<Health>();
+        if (!_health) _health = GetComponent<Health>();
     }
 
     public void Spawn(SpawnManagerPreset objPreset)

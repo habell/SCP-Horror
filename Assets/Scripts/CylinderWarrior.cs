@@ -7,8 +7,9 @@ namespace DefaultNamespace
     [RequireComponent(typeof(Health))]
     public class CylinderWarrior : MonoBehaviour, IEnemy, IDeath
     {
-        public bool kill;
+        [SerializeField]
         private Health _health;
+
         public Health Health => _health;
 
         public EnemyManager EnemyManager { get; private set; }
@@ -21,13 +22,8 @@ namespace DefaultNamespace
         public void Spawn(SpawnManagerPreset preset)
         {
             var attributeValue = float.Parse(preset.GetAttributeData(Attributes.MaxHealth).AttributeValue);
-            if(!_health) _health = GetComponent<Health>();
+            if (!_health) _health = gameObject.GetComponent<Health>();
             _health.SetHealth(attributeValue);
-        }
-
-        private void FixedUpdate()
-        {
-            if(kill) Death();
         }
 
         public void Death()
@@ -35,6 +31,5 @@ namespace DefaultNamespace
             EnemyManager.RemoveEnemyInEnemyList(gameObject);
             Destroy(gameObject);
         }
-        
     }
 }
