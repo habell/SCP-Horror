@@ -5,7 +5,7 @@ namespace DefaultNamespace
     [Serializable]
     public struct AttributeData
     {
-        public string AttributeName;
+        public Attributes AttributeName;
         public string AttributeValue;
     }
 }

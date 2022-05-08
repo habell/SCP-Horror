@@ -1,13 +1,23 @@
+using System;
 using DefaultNamespace.Interfaces;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
+    [RequireComponent(typeof(Health))]
     public class CylinderWarrior : MonoBehaviour, IEnemy
     {
-        public GameObject Spawn(Transform spawnPosition, GameObject obj)
+        public GameObject Spawn(Transform spawnPosition, SpawnManagerPreset obj)
         {
-            return Instantiate(obj, spawnPosition.position, spawnPosition.rotation);
+            var spawnedObject = Instantiate(obj.Prefab, spawnPosition.position, spawnPosition.rotation);
+            foreach (var attributeData in obj.Attributes)
+            {
+                if (attributeData.AttributeName == Attributes.MaxHealth)
+                {
+                    spawnedObject.GetComponent<Health>().SetHealth(float.Parse(attributeData.AttributeValue));
+                }
+            }
+            return spawnedObject;
         }
     }
 }

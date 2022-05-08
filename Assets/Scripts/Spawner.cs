@@ -32,6 +32,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn(int id)
     {
-        _enemyList.Add(_manager.Prefab.GetComponent<ISpawnable>().Spawn(_spawnPositions[id], _manager.Prefab));
+        var spawnedEnemy = _manager.Prefab.GetComponent<ISpawnable>().Spawn(_spawnPositions[id], _manager);
+        _enemyList.Add(spawnedEnemy);
     }
 }
