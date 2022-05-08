@@ -1,17 +1,18 @@
 using System.Collections.Generic;
+using DefaultNamespace.Interfaces;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class Health : MonoBehaviour
     {
-        private float _health;
+        private float _healthValue;
 
         public void SetHealth(float value)
         {
-            if (_health + value > 0)
+            if (_healthValue + value > 0)
             {
-                _health += value;
+                _healthValue += value;
             }
             else
             {
@@ -21,8 +22,15 @@ namespace DefaultNamespace
 
         private void Death()
         {
-            print("Oh no, i'm death!");
-            Destroy(gameObject);
+            if (TryGetComponent(out IDeath obj))
+            {
+                obj.Death();
+            }
+            else
+            {
+                print("Oh no, i'm death!");
+                Destroy(gameObject);
+            }
         }
     }
 }
