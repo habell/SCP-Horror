@@ -24,12 +24,10 @@ public class Player : MonoBehaviour, ISpawnable, IUnit
         if(!_health) _health = GetComponent<Health>();
     }
 
-    public GameObject Spawn(SpawnManagerPreset objPreset)
+    public void Spawn(SpawnManagerPreset objPreset)
     {
         var attributeValue = float.Parse(objPreset.GetAttributeData(Attributes.MaxHealth).AttributeValue);
         Health.SetHealth(attributeValue);
-        
-        return gameObject;
     }
 
 

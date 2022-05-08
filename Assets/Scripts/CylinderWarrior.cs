@@ -9,17 +9,12 @@ namespace DefaultNamespace
     {
         private Health _health;
         public Health Health => _health;
-        private void Start()
-        {
-            _health = GetComponent<Health>();
-        }
 
-        public GameObject Spawn(SpawnManagerPreset preset)
+        public void Spawn(SpawnManagerPreset preset)
         {
             var attributeValue = float.Parse(preset.GetAttributeData(Attributes.MaxHealth).AttributeValue);
-            Health.SetHealth(attributeValue);
-
-            return gameObject;
+            if(!_health) _health = GetComponent<Health>();
+            _health.SetHealth(attributeValue);
         }
     }
 }
