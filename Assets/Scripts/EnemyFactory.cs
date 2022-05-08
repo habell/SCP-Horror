@@ -24,7 +24,7 @@ public class EnemyFactory : MonoBehaviour, IFactory
     public GameObject Create()
     {
         var spawnedEnemy = Instantiate(_creatableObject.Prefab, _spawnPosition.position, _spawnPosition.rotation);
-        _spawnable.Spawn(_creatableObject);
+        //_spawnable.Spawn(_creatableObject);
         return spawnedEnemy;
     }
 }
