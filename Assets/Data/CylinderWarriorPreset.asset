@@ -15,7 +15,7 @@ MonoBehaviour:
   _type: 1
   _prefab: {fileID: 8922471583153726715, guid: ee4c56c7fe44a3d4195d6c91c394944a, type: 3}
   _attributes:
-  - AttributeName: Speed
-    AttributeValue: 10
-  - AttributeName: MaxHealth
+  - AttributeName: 1
+    AttributeValue: 15
+  - AttributeName: 0
     AttributeValue: 100

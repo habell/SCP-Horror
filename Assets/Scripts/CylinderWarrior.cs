@@ -7,17 +7,19 @@ namespace DefaultNamespace
     [RequireComponent(typeof(Health))]
     public class CylinderWarrior : MonoBehaviour, IEnemy
     {
-        public GameObject Spawn(Transform spawnPosition, SpawnManagerPreset obj)
+        private Health _health;
+        public Health Health => _health;
+        private void Start()
         {
-            var spawnedObject = Instantiate(obj.Prefab, spawnPosition.position, spawnPosition.rotation);
-            foreach (var attributeData in obj.Attributes)
-            {
-                if (attributeData.AttributeName == Attributes.MaxHealth)
-                {
-                    spawnedObject.GetComponent<Health>().SetHealth(float.Parse(attributeData.AttributeValue));
-                }
-            }
-            return spawnedObject;
+            _health = GetComponent<Health>();
+        }
+
+        public GameObject Spawn(SpawnManagerPreset preset)
+        {
+            var attributeValue = float.Parse(preset.GetAttributeData(Attributes.MaxHealth).AttributeValue);
+            Health.SetHealth(attributeValue);
+
+            return gameObject;
         }
     }
 }

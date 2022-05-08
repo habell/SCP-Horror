@@ -1,6 +1,7 @@
 namespace DefaultNamespace.Interfaces
 {
-    public interface IEnemy : ISpawnable
+    public interface IWeapon
     {
+        void Shot();
     }
 }

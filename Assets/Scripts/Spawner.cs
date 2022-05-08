@@ -5,7 +5,7 @@ using DefaultNamespace.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour, IFactory
 {
     [SerializeField]
     private SpawnManagerPreset _manager;
@@ -18,21 +18,33 @@ public class Spawner : MonoBehaviour
 
 
     private float _timer;
+
+    private void Start()
+    {
+        if (_spawnPositions.Length < 1)
+        {
+            _spawnPositions[0] = transform;
+            Debug.LogError("Spawner not have spawn positions!");
+        }
+    }
+
     private void FixedUpdate()
     {
         if (_timer <= 0)
         {
             _timer += 10;
-            var random = Random.Range(0, _spawnPositions.Length);
-            Spawn(random);
+            Create();
         }
 
         _timer -= Time.fixedDeltaTime;
     }
 
-    private void Spawn(int id)
+    public GameObject Create()
     {
-        var spawnedEnemy = _manager.Prefab.GetComponent<ISpawnable>().Spawn(_spawnPositions[id], _manager);
+        var random = Random.Range(0, _spawnPositions.Length);
+        Instantiate(_manager.Prefab, _spawnPositions[random].position, _spawnPositions[random].rotation);
+        var spawnedEnemy = _manager.Prefab.GetComponent<ISpawnable>().Spawn(_manager);
         _enemyList.Add(spawnedEnemy);
+        return spawnedEnemy;
     }
 }
