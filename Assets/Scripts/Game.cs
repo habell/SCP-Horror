@@ -6,15 +6,23 @@ public class Game : MonoBehaviour
 {
     [SerializeField]
     private GameObject _playerPrefab;
-
-    [SerializeField]
+    
     private GameObject _player;
 
+    public GameObject PlayerPrefab => _playerPrefab;
     public GameObject Player => _player;
 
     public static Game Instance { get; private set; }
 
-    private void Start()
+    public void CreatePlayer(GameObject player)
+    {
+        if (!_player)
+        {
+            _player = player;
+        }
+    }
+
+    private void Awake()
     {
         Instance = this;
     }

@@ -18,15 +18,11 @@ public class Player : MonoBehaviour, ISpawnable, IUnit
         _usingWeapon = weapon;
     }
 
-    private void Awake()
-    {
-        if (!_health) _health = GetComponent<Health>();
-    }
-
     public void Spawn(SpawnManagerPreset objPreset)
     {
         var attributeValue = float.Parse(objPreset.GetAttributeData(Attributes.MaxHealth).AttributeValue);
-        Health.SetHealth(attributeValue);
+        if (!_health) _health = GetComponent<Health>();
+        _health.SetHealth(attributeValue);
     }
 
 
