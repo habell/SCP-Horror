@@ -1,14 +1,23 @@
-
+using System;
 using System.Collections.Generic;
-using Interface;
+using DefaultNamespace;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpawnManagerPreset", menuName = "ScriptableObject/SpawnManagerPreset")]
 public class SpawnManagerPreset : ScriptableObject
 {
-    [SerializeField] 
-    private GameObject _parent;
+    [SerializeField]
+    private SpawnableTypes _type;
+    
+    [SerializeField]
+    private GameObject _prefab;
+    
+    [SerializeField]
+    private List<AttributeData> _attributes;
 
-    [SerializeField] 
-    private List<GameObject> _objects;
+    public SpawnableTypes Type => _type;
+    
+    public GameObject Prefab => _prefab;
+
+    public List<AttributeData> Attributes => _attributes;
 }
