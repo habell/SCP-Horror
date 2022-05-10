@@ -6,7 +6,7 @@ public class Game : MonoBehaviour
 {
     [SerializeField]
     private GameObject _playerPrefab;
-    
+
     private GameObject _player;
 
     public GameObject PlayerPrefab => _playerPrefab;

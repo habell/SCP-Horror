@@ -7,14 +7,15 @@ public class PlayerSpawn : MonoBehaviour, IFactory
 {
     [SerializeField]
     private SpawnManagerPreset _playerPreset;
-    
+
     private Game _game;
+
     private void Awake()
     {
         _game = Game.Instance;
         _game.CreatePlayer(Create());
     }
-    
+
     public GameObject Create()
     {
         var player = Instantiate(_game.PlayerPrefab);
