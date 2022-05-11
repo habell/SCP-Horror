@@ -14,6 +14,12 @@ namespace DefaultNamespace
 
         public EnemyManager EnemyManager { get; private set; }
 
+        private void Awake()
+        {
+            print("1");
+            if (!_health) _health = gameObject.GetComponent<Health>();
+        }
+
         public void SetEnemyManager(EnemyManager enemyManager)
         {
             EnemyManager = enemyManager;
@@ -21,8 +27,8 @@ namespace DefaultNamespace
 
         public void Spawn(SpawnManagerPreset preset)
         {
+            print("2");
             var attributeValue = float.Parse(preset.GetAttributeData(Attributes.MaxHealth).AttributeValue);
-            if (!_health) _health = gameObject.GetComponent<Health>();
             _health.SetHealth(attributeValue);
         }
 
