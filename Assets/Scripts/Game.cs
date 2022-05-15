@@ -24,6 +24,6 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        //Instance = this;
     }
 }
