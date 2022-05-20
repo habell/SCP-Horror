@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
     public GameObject PlayerPrefab => _playerPrefab;
     public GameObject Player => _player;
 
-    public static Game Instance { get; private set; }
+    //public static Game Instance { get; private set; }
 
     public void CreatePlayer(GameObject player)
     {
