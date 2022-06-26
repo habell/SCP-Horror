@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e15efbd43156c84797d5718762b28cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedAnimation: 
-  _jumpAnimation: 
+  _speedAnimation: Speed
+  _jumpAnimation: Jumping
 --- !u!1001 &490460297
 PrefabInstance:
   m_ObjectHideFlags: 0
