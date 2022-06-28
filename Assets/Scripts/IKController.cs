@@ -26,10 +26,16 @@ public class IKController : MonoBehaviour
 
     private void OnAnimatorIK(int layerIndex)
     {
-        if (_isActiveIK)
+        if (Vector3.Distance(_lookPosition.position, transform.position) < 2)
         {
             _animator.SetLookAtWeight(1);
             _animator.SetLookAtPosition(_lookPosition.position);
+        }
+        else
+            _animator.SetLookAtWeight(0);
+        
+        if (_isActiveIK)
+        {
 
             foreach (var animData in _animPoints)
             {
