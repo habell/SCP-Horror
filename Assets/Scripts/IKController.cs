@@ -57,4 +57,5 @@ public class IKController : MonoBehaviour
         _animator.SetIKPosition(type, transform.position);
         _animator.SetIKRotation(type, transform.rotation);
     }
+    
 }

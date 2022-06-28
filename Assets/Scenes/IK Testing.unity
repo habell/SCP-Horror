@@ -927,6 +927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IK animation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e05430a354716d44885c10ee7208fbf0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bc2754c977365854f82f278d783ac7b7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05430a354716d44885c10ee7208fbf0, type: 3}
 --- !u!1 &1495157659
